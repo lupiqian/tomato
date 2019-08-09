@@ -44,7 +44,7 @@ def run(studyTime,interval):
             study()
             time.sleep(studyTime*60) #就是睡指定时间
             dialog(studyTime,interval)
-            print("学习暂停,进入休息时间")
+            print("工作暂停,进入休息时间")
             rest()
             time.sleep(interval*60)#回到循环开头
         except Exception as e:
