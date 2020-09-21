@@ -1,46 +1,47 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
-# 原作者：https://blog.csdn.net/qq_38190111/article/details/89044299 
+# 原作者：https://blog.csdn.net/qq_38190111/article/details/89044299
 
 from PIL import Image, ImageTk
 import tkinter as tk
-import time
+import time,os
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def dialog():
     window = tk.Tk()
     window.title('休息一下吧!')
     window.geometry('1200x900')
     global img_png
-    Img = Image.open('./dialog.jpg')
+    Img = Image.open(current_dir + "./dialog.jpg")
     img_png = ImageTk.PhotoImage(Img)
     label_Img = tk.Label(window, image=img_png)
     label_Img.pack()
     window.mainloop()
 
 def study():
-    print('''             __                      __            __                     
-            /  |                    /  |          /  |                    
-  _______  _$$ |_    __    __   ____$$ | __    __ $$/  _______    ______  
- /       |/ $$   |  /  |  /  | /    $$ |/  |  /  |/  |/       \  /      \ 
+    print('''             __                      __            __
+            /  |                    /  |          /  |
+  _______  _$$ |_    __    __   ____$$ | __    __ $$/  _______    ______
+ /       |/ $$   |  /  |  /  | /    $$ |/  |  /  |/  |/       \  /      \
 /$$$$$$$/ $$$$$$/   $$ |  $$ |/$$$$$$$ |$$ |  $$ |$$ |$$$$$$$  |/$$$$$$  |
 $$      \   $$ | __ $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |  $$ |$$ |  $$ |
  $$$$$$  |  $$ |/  |$$ \__$$ |$$ \__$$ |$$ \__$$ |$$ |$$ |  $$ |$$ \__$$ |
 /     $$/   $$  $$/ $$    $$/ $$    $$ |$$    $$ |$$ |$$ |  $$ |$$    $$ |
 $$$$$$$/     $$$$/   $$$$$$/   $$$$$$$/  $$$$$$$ |$$/ $$/   $$/  $$$$$$$ |
                                         /  \__$$ |              /  \__$$ |
-                                        $$    $$/               $$    $$/ 
+                                        $$    $$/               $$    $$/
                                          $$$$$$/                 $$$$$$/ ''')
 def rest():
-    print('''                                 __     
-                                /  |    
-  ______    ______    _______  _$$ |_   
- /      \  /      \  /       |/ $$   |  
-/$$$$$$  |/$$$$$$  |/$$$$$$$/ $$$$$$/   
-$$ |  $$/ $$    $$ |$$      \   $$ | __ 
+    print('''                                 __
+                                /  |
+  ______    ______    _______  _$$ |_
+ /      \  /      \  /       |/ $$   |
+/$$$$$$  |/$$$$$$  |/$$$$$$$/ $$$$$$/
+$$ |  $$/ $$    $$ |$$      \   $$ | __
 $$ |      $$$$$$$$/  $$$$$$  |  $$ |/  |
-$$ |      $$       |/     $$/   $$  $$/ 
+$$ |      $$       |/     $$/   $$  $$/
 $$/        $$$$$$$/ $$$$$$$/     $$$$/  ''')
- 
+
 #按分钟计时
 def run(studyTime,interval):
     while True:
@@ -53,8 +54,8 @@ def run(studyTime,interval):
             time.sleep(interval*60)#回到循环开头
         except Exception as e:
             print(e)
-            
+
 if __name__ == "__main__":
-    studyTime = 25
+    studyTime = 45
     interval = 5
     run(studyTime,interval)
