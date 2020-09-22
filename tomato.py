@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
 
 # 原作者：https://blog.csdn.net/qq_38190111/article/details/89044299
 
 from PIL import Image, ImageTk
 import tkinter as tk
-import time,os
+import time,os,sys
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def dialog():

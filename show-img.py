@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
 # 原作者地：https://blog.csdn.net/qq_38190111/article/details/89044299 
 #import subprocess
 from PIL import Image, ImageTk
