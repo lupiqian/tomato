@@ -13,7 +13,7 @@ def dialog():
     window.title('休息一下吧!')
     window.geometry('1200x900')
     global img_png
-    Img = Image.open(current_dir + "./dialog.jpg")
+    Img = Image.open(current_dir + "/dialog.jpg")
     img_png = ImageTk.PhotoImage(Img)
     label_Img = tk.Label(window, image=img_png)
     label_Img.pack()
