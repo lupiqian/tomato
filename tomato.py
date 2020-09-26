@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#coding:utf-8
 
-# 原作者：https://blog.csdn.net/qq_38190111/article/details/89044299
+# 参考作者：https://blog.csdn.net/qq_38190111/article/details/89044299
 
 from PIL import Image, ImageTk
 import tkinter as tk
@@ -19,7 +19,7 @@ def dialog():
     label_Img.pack()
     window.mainloop()
 
-def study():
+def study(studyTime):
     print('''
                                  _oo0oo_
                                 088888880
@@ -43,7 +43,9 @@ def study():
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                         闭关修炼    iii    法力无边
     ''')
-def rest():
+    countdown(studyTime)
+
+def rest(interval):
     print('''
                                                  __
                                                 /  |
@@ -56,6 +58,23 @@ def rest():
                 $$/        $$$$$$$/ $$$$$$$/     $$$$/
 
     ''')
+    countdown(interval)
+
+def countdown(m):
+    try:
+        m = int(m)
+    except ValueError:
+        print('Must be an integer!')
+    else:
+        while True:
+            for minute in range(m, -1, -1):
+                if minute == 0:
+                    break
+                for second in range(59, -1, -1):
+                    time.sleep(1)
+                    print('{}:{}'.format(minute-1, second), end=' \r')
+            print('一个番茄的时间结束了。')
+            break
 
 #按分钟计时
 def run(studyTime,interval):
@@ -64,11 +83,11 @@ def run(studyTime,interval):
         interval  = float(sys.argv[2])
     while True:
         try:
-            study()
+            study(studyTime)
             time.sleep(studyTime*60) #就是睡指定时间
             dialog()
             print("工作暂停,进入休息时间")
-            rest()
+            rest(interval)
             time.sleep(interval*60)#回到循环开头
         except Exception as e:
             print(e)
